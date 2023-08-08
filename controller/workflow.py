@@ -4,7 +4,7 @@ import cv2
 import os
 import yaml
 import random 
-
+from tqdm import tqdm
 with open("contants.yaml", 'r') as stream:
     CONSTANTS = yaml.safe_load(stream)
 
@@ -12,8 +12,8 @@ with open("contants.yaml", 'r') as stream:
 def run_pipeline():
     imgs = os.listdir(CONSTANTS["inp_img_pth"])  
     n = int(CONSTANTS["generationNumber"])
-    for i in range(0, n):   
-        random_index = random.randint(0,len(imgs))
+    for i in tqdm(range(0,n)):   
+        random_index = random.randint(0,len(imgs)-1)
         img_file = imgs[random_index]
         try:
             file_name = img_file.split('.')[0]

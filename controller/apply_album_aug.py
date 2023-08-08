@@ -25,8 +25,7 @@ def apply_aug(image, bboxes, out_lab_pth, out_img_pth, transformed_file_name, cl
             transformed_bboxes = [single_obj_bb_yolo_conversion(transformed_bboxes[0], classes)]
             save_aug_lab(transformed_bboxes, out_lab_pth, transformed_file_name + ".txt")
         save_aug_image(transformed_image, out_img_pth, transformed_file_name + ".png")   
-        labelled_save_path =  out_img_pth.replace("/images","/labelled/")+ transformed_file_name + ".png"
-        print(labelled_save_path)          
+        labelled_save_path =  out_img_pth.replace("/images","/labelled/")+ transformed_file_name + ".png"      
         # draw_yolo(transformed_image, transformed_bboxes, labelled_save_path)
     else:
         print("label file is empty")        
